@@ -1,0 +1,98 @@
+package slgc;
+
+import java.awt.Point;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import shapes.RemoteShape;
+import slm.ShapesList;
+
+public class ShapeEventNotifier implements MouseListener, KeyListener {
+	List<MouseClickListener> mouseClickListeners = new ArrayList();
+	ShapesList shapesList;
+	public ShapeEventNotifier(ShapesList theShapesList) {
+		shapesList = theShapesList;
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	public List<RemoteShape> getShapesContaining(Point p)
+    {
+		 List retVal = new ArrayList();
+         for (Enumeration shapeKeys = shapesList.keys();shapeKeys.hasMoreElements();)
+         {
+			 String shapeKey = (String) shapeKeys.nextElement();
+             RemoteShape shapeModel = shapesList.get( shapeKey);
+             if (SelectOperandController.contains (shapeModel, p))
+				 retVal.add(shapeModel);
+         
+         }
+		 return retVal;
+    }
+	public void addMouseClickListener(MouseClickListener theMouseClickListner) {
+		if (!mouseClickListeners.contains(theMouseClickListner))
+			mouseClickListeners.add(theMouseClickListner);		
+	}
+	public void removeMouseClickListener(MouseClickListener theMouseClickListner) {
+		if (mouseClickListeners.contains(theMouseClickListner))
+			mouseClickListeners.remove(theMouseClickListner);		
+	}
+	void notifyMouseClickListeners(List<RemoteShape> shapes, MouseEvent mouseEvent) {
+		for (MouseClickListener mouseClickListener: mouseClickListeners ) {
+			mouseClickListener.mouseClicked(shapes, mouseEvent);
+		}
+	}
+
+}
