@@ -63,16 +63,18 @@ public class SLTView implements Listener
          //System.out.print("Key: " + key);
          try
             {
-                Class shapeClass = shapeModel.getClass();
-                if (shapeClass == Class.forName("shapes.LineModel"))
+//                Class shapeClass = shapeModel.getClass();
+//                if (shapeClass == Class.forName("shapes.LineModel"))
+                 if (shapeModel instanceof shapes.LineModel)
+
                 {
                     printLine((LineModel) shapeModel);
                 }
-                else if (shapeClass == Class.forName("shapes.OvalModel"))
+                else if (shapeModel instanceof  shapes.OvalModel)
                 {
                     printOval((OvalModel) shapeModel);
                 }
-                else if (shapeClass == Class.forName("shapes.RectangleModel"))
+                else if (shapeModel instanceof shapes.RectangleModel)
                 {
                     printRectangle((RectangleModel) shapeModel);
                 }
