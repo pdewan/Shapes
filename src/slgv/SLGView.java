@@ -692,7 +692,10 @@ public class SLGView extends UnicastRemoteObject implements Listener, Remote, Pa
 //    			
 //    		} 
     		int newX = text.getX();
-    		int newY = text.getY() + Common.getFontHeight(g2.getFont(), null);
+//    		int newY = text.getY() + Common.getFontHeight(g2.getFont(), null);
+    		// does not seem necessary to do add to Y, it seems to be upper left corner, wonder why I did it
+    		int newY = text.getY();
+
     		if (text.getWidth() >= 0 ) {
     			clipWidth = text.getWidth();
 //    			clipX = newX;
