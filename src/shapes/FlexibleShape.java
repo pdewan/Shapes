@@ -13,7 +13,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 import java.rmi.RemoteException;
 
-import util.models.PropertyListenerRegistrar;
+import util.models.PropertyListenerRegisterer;
 
 public interface FlexibleShape extends AttributedShape, FlexibleLocatable, Magnifiable, Disposable {
 	public Rectangle getBounds() ;
