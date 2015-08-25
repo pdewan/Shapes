@@ -52,7 +52,7 @@ import bus.uigen.widgets.swing.DelegateJPanel;
 //import java.awt.List;
 //import bus.agent.AutoAllConnect;
 // removing UnicastRemoteObject as it gives error saying util.Listener not found, perhaps there is a skeleton class
-public class SLGView /*extends UnicastRemoteObject*/ implements Listener, Remote, Painter
+public class SLGView extends UnicastRemoteObject implements Listener, Remote, Painter
 {
 	
     transient private boolean paintKeys = false;
