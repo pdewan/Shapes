@@ -710,6 +710,8 @@ public class SLGView /*extends UnicastRemoteObject*/ implements Listener, Remote
     		}
     		if (changedClip) {
     			Rectangle newClipBounds = new  Rectangle(newX, text.getY(), clipWidth, clipHeight);
+//    			Rectangle newClipBounds = new  Rectangle(0, 0, clipWidth, clipHeight);
+
 //    		   g2.setClip(new Rectangle(clipX, clipY, clipWidth, clipHeight));
     		   g2.setClip(newClipBounds);
 
